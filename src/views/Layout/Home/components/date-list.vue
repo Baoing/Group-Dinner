@@ -73,7 +73,7 @@ export default {
 }
 
 .item-day-wrap {
-  flex: 1;
+  flex: 0 0 13.2%;
   margin-bottom: .4rem;
 }
 </style>

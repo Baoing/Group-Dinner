@@ -26,7 +26,7 @@
     </div>
     <div class="read-wrap">
       <van-checkbox class="checkbox" v-model="isRead" shape="round" icon-size="1rem" />
-        <span @click="isReadClick" class="read-text">我已阅读并同意<router-link to="/">《用户服务条款》</router-link>和<router-link to="/">《平台隐私协议》</router-link></span>
+        <span @click="isReadClick" class="read-text">我已阅读并同意<router-link to="/privacyPolicy">《用户服务条款》</router-link>和<router-link to="/tos">《平台隐私协议》</router-link></span>
     </div>
 
   </van-form>

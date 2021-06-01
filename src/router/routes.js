@@ -7,6 +7,9 @@ const Me = () => import('@/views/Layout/Me')
 const SetLocation = () => import('@/views/SetLocation')
 
 const About = () => import('@/views/About')
+const PrivacyPolicy = () => import('@/views/About/privacy-policy')
+const Tos = () => import('@/views/About/tos')
+
 const Qrcode = () => import('@/views/Qrcode')
 const Coupon = () => import('@/views/Coupon')
 const Preference = () => import('@/views/Preference')
@@ -72,6 +75,22 @@ const routes = [
     meta: {
       title: '关于',
       isLogin: true
+    }
+  },
+  {
+    path: '/tos',
+    name: 'Tos',
+    component: Tos,
+    meta: {
+      title: '服务协议'
+    }
+  },
+  {
+    path: '/privacyPolicy',
+    name: 'PrivacyPolicy',
+    component: PrivacyPolicy,
+    meta: {
+      title: '用户协议'
     }
   },
   {

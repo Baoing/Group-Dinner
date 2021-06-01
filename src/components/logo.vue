@@ -18,6 +18,7 @@ export default {
 <style scoped>
 .logo{
   width: 14rem;
+  min-height: 3rem;
   margin: 0 auto;
   margin-top: 10vh;
 }
