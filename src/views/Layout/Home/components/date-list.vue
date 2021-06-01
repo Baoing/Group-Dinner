@@ -55,11 +55,11 @@ export default {
 .wrap {
   display: flex;
   align-items: flex-start;
-  margin-top: .8rem;
+  padding: 0 0.5rem;
   .switch {
-    width: 2rem;
+    width: 1.2rem;
     text-align: right;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 3rem;
     color: #999;
   }
@@ -73,37 +73,7 @@ export default {
 }
 
 .item-day-wrap {
-  width: 13%;
+  flex: 1;
   margin-bottom: .4rem;
-}
-
-.item-day {
-  width: 2.8rem;
-  height: 2.8rem;
-  border-radius: 50%;
-  background: #fff;
-  text-align: center;
-  color: #666;
-  display: flex;
-  border: 1px solid #ccc;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.2rem;
-
-  .week {
-    font-size: 0.62rem;
-  }
-
-  .day {
-    font-size: 1.1rem;
-    position: relative;
-    top: -0.2rem;
-  }
-
-  &.active {
-    color: #fff;
-    background: $theme-linear;
-    border-color: $theme-color;
-  }
 }
 </style>

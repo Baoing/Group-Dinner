@@ -2,7 +2,7 @@
   <div class="order-list">
     <div v-show="!orderList || orderList.length<1" class="default">
       <my-empty image="notOrder" description="暂无订单 ~" />
-      <van-button class="empty-button">立即下单</van-button>
+      <van-button class="empty-button" to="/home">立即下单</van-button>
     </div>
     <div v-show="orderList && orderList.length>=1" class="list-container">
 
@@ -41,7 +41,6 @@ export default {
 .order-list{
   margin-top: 0.8rem;
   background: #fff;
-  height: 100vh;
 }
 /deep/.van-empty__image{
   margin-top: 3rem;

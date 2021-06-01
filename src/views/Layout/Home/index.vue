@@ -16,21 +16,6 @@ export default {
     HomeHeader,
     DateList,
     OrderList
-  },
-  data() {
-    return {
-    };
-  },
-  computed: {},
-  watch: {},
-  methods: {
-
-  },
-  created() {
-
-  },
-  mounted() {
-
   }
 }
 </script>

@@ -10,10 +10,13 @@ const About = () => import('@/views/About')
 const Qrcode = () => import('@/views/Qrcode')
 const Coupon = () => import('@/views/Coupon')
 const Preference = () => import('@/views/Preference')
-const Setting = () => import('@/views/Setting')
 const Notify = () => import('@/views/Notify')
 const Subsidy = () => import('@/views/Subsidy')
 const Wallet = () => import('@/views/Wallet')
+
+// 个人设置
+const Setting = () => import('@/views/Setting')
+const SetAuthor = () => import('@/views/Setting/author')
 
 const routes = [
   {
@@ -104,6 +107,15 @@ const routes = [
     component: Setting,
     meta: {
       title: '个人设置',
+      isLogin: true
+    }
+  },
+  {
+    path: '/setAuthor',
+    name: 'SetAuthor',
+    component: SetAuthor,
+    meta: {
+      title: '头像设置',
       isLogin: true
     }
   },

@@ -49,7 +49,8 @@ export default {
       userInfo: {
         username: '',
         password: '',
-        token: ""
+        token: "",
+        location:"演示地点2F"
       },
       isRead: true
     };
@@ -57,9 +58,8 @@ export default {
   methods: {
     handleLoginClick() {
       if(!this.formValidate()) return false
-
       this.userInfo.token = this.userInfo.username +this.userInfo.password
-      this.$store.commit('saveUserInfo', this.userInfo)
+      this.$store.dispatch('user/LoginIn',this.userInfo)
       // 登录成功后，返回上次进入的页面；
       setTimeout(()=> this.$route.query.redirect ? this.$router.go(-1) :this.$router.push("/"),0)
 

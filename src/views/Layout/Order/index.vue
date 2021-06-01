@@ -1,8 +1,7 @@
 <template>
   <div class='order-page'>
-    <order-header :status="status"></order-header>
-
-    <order-list></order-list>
+    <order-header :status="status" @ChangeStatus="ChangeStatus"></order-header>
+    <order-list :status="status" class="order-list"></order-list>
   </div>
 </template>
 
@@ -22,7 +21,10 @@ export default {
   computed: {},
   watch: {},
   methods: {
-
+    // 改变当前的状态
+    ChangeStatus(status){
+      this.status = status
+    }
   },
   created() {
 
@@ -34,6 +36,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .order-page{
-
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 50px);
+  .order-list{
+    flex: 1
+  }
 }
 </style>

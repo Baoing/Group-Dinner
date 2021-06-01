@@ -1,7 +1,12 @@
 <template>
   <div class="order-header">
-    <div class="item-wrap" v-for="(item,index) of headerItems" :key="index" @click="handleTypeChange(index)">
-      <div :class="type==index? 'header-item active': 'header-item'">
+    <div
+        v-for="(item,index) of headerItems"
+        class="item-wrap"
+        :key="index"
+        @click="$emit('ChangeStatus',index)"
+    >
+      <div :class="status===item.status? 'header-item active': 'header-item'">
         {{item.title}}
       </div>
     </div>
@@ -10,22 +15,23 @@
 
 <script>
 export default {
+  name:"order-header",
+  props: {
+    status: {
+      type: Number,
+      require: true
+    }
+  },
   data() {
     return {
       headerItems: [
-        {title: '今日订单', type: 0},
-        {title: '预定订单', type: 1},
-        {title: '历史订单', type: 2},
-        {title: '待评价', type: 3},
-      ],
-      type: 0
+        {title: '今日订单', status: 0},
+        {title: '预定订单', status: 1},
+        {title: '历史订单', status: 2},
+        {title: '待评价', status: 3},
+      ]
     }
   },
-  methods: {
-    handleTypeChange(i) {
-      this.type = i
-    }
-  }
 }
 </script>
 

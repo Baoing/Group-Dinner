@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import {Toast} from 'vant'
 import SelectItem from "./components/select-item"
 export default {
   components:{
@@ -29,17 +30,17 @@ export default {
     }
   },
   mounted(){
+    let location = this.$store.getters['user/location']
     this.locationList.forEach((item,index)=>{
-      this.$store.state.location == item.location && (this.activeLocation = index)
+      location == item.location && (this.activeLocation = index)
     })
-
   },
   methods:{
     handleItemClick(i){
       this.activeLocation = i
-      this.$store.commit("saveLocation",this.locationList[i].location)
-    },
-
+      this.$store.dispatch("user/setLocation",this.locationList[i].location)
+      Toast("绑定成功")
+    }
   }
 }
 </script>

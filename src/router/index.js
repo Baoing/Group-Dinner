@@ -1,15 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from './routes'
-import {getToken} from '@/utils/auth' // 验权
-
+import store from '@/store'
 
 Vue.use(VueRouter)
 const router = new VueRouter({routes})
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(res => res.meta.isLogin)) {//判断是否需要登录
-    if (getToken()) {
+    if (store.getters['user/token']) {
       to.name === 'login' && router.push({name: 'home'});
       next();
     } else {

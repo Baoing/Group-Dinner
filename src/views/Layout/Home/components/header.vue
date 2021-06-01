@@ -29,7 +29,7 @@ export default {
     };
   },
   mounted() {
-    this.location = this.$store.state.location
+    this.location = this.$store.getters['user/location']
   },
   methods: {
     handleLinkTo(link) {
