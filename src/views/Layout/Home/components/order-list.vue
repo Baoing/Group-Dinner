@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="order-wrap" v-for="(item,index) of orderList" :key="index" :class="item.status==1?'':'opacity'">
+    <div class="order-wrap" v-for="(item,index) of orderList" :key="index" :class="item.status==2?'':'opacity'">
       <div class="order-item">
         <div class="pic"><img :src="item.pic" :alt="item.title"></div>
         <div class="desc">
@@ -29,7 +29,7 @@
 
 <style lang="scss" scoped>
 .opacity{
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .container{
   padding: 0 1rem;

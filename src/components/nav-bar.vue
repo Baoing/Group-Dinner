@@ -7,19 +7,25 @@
       class="nav-bar"
       fixed
       z-index="9999"
-    />
+    >
+      <template v-if="rightIcon" #right>
+        <van-icon :name="rightIcon" size="18" @click="$emit('right-click')" />
+      </template>
+    </van-nav-bar>
     <div class="block"></div>
   </div>
 </template>
 
 <script>
-import {NavBar} from 'vant'
+import {NavBar,Icon} from 'vant'
 export default {
   props:{
-    title: String
+    title: String,
+    rightIcon: String
   },
   components:{
-    [NavBar.name]: NavBar
+    [NavBar.name]: NavBar,
+    [Icon.name]: Icon
   },
   methods:{
     onClickLeft(){
@@ -39,6 +45,7 @@ export default {
     height: 52px;
   }
   /deep/ .van-nav-bar__left i,
+  /deep/ .van-nav-bar__right i,
   /deep/ .van-nav-bar__title {
     color: #fff;
   }
