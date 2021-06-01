@@ -17,8 +17,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~@/assets/styles/_variables.scss';
-
 .container{
   width: 100%;
   padding: 2rem 0;

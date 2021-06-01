@@ -86,8 +86,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '~@/assets/styles/_variables.scss';
-
 $width: 86%;
 
   .input-wrap{

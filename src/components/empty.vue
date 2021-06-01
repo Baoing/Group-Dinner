@@ -22,8 +22,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~@/assets/styles/_variables.scss';
-
 /deep/.van-empty__image{
   margin-top: 3rem;
   width: 180px;

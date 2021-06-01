@@ -36,8 +36,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~@/assets/styles/_variables.scss';
-
 .nav-bar{
   background: $theme-linear;
   color: #fff;

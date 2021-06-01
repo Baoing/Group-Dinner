@@ -102,7 +102,6 @@ import {Cell, CellGroup, Icon,Button,Dialog} from 'vant'
   background: #f5f5f5;
   height: 100vh;
 }
-@import '~@/assets/styles/_variables.scss';
 .cell-group{
   background: none;
 }

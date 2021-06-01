@@ -33,7 +33,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: `@import "@/assets/styles/_variables.scss";`
+        data: `@import "@/assets/styles/_variables.scss";` //注意：sass-loader@8.0.0之后，要将上面的data替换为prependData
       }
     }
   }

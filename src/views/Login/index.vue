@@ -37,8 +37,6 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-@import '~@/assets/styles/_variables.scss';
-
 .longin-main {
   position: absolute;
   top: 54%;
