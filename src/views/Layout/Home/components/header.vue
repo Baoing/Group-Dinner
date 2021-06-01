@@ -40,7 +40,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '~@/assets/styles/_variables.scss';
-
+.home-header{
+  padding: 1rem;
+}
 .location {
   display: inline-flex;
   align-items: center;

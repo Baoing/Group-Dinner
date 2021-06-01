@@ -1,4 +1,3 @@
-<script src="../../../../../../admin/src/router/index.js"></script>
 <template>
   <van-form @submit="handleLoginClick">
     <div class="input-wrap">

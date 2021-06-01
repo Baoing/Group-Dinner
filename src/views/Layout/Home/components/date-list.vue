@@ -56,7 +56,6 @@ export default {
   display: flex;
   align-items: flex-start;
   margin-top: .8rem;
-
   .switch {
     width: 2rem;
     text-align: right;
@@ -79,8 +78,8 @@ export default {
 }
 
 .item-day {
-  width: 3rem;
-  height: 3rem;
+  width: 2.8rem;
+  height: 2.8rem;
   border-radius: 50%;
   background: #fff;
   text-align: center;
@@ -92,11 +91,11 @@ export default {
   padding: 0.2rem;
 
   .week {
-    font-size: 0.66rem;
+    font-size: 0.62rem;
   }
 
   .day {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     position: relative;
     top: -0.2rem;
   }
