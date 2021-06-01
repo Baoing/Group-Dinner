@@ -18,6 +18,7 @@
         label="密码"
         placeholder="请输入密码"
         label-width="3rem"
+        autocomplete
       />
     </div>
     <div class="question">遇到问题？</div>
