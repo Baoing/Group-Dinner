@@ -4,6 +4,7 @@
  */
 export const getDay = (number) => {
   let days = []
+
   function getDay(day) {
     let today = new Date()
     let targetday_milliseconds = today.getTime() + 1000 * 60 * 60 * 24 * day
@@ -14,8 +15,9 @@ export const getDay = (number) => {
     tMonth = doHandleMonth(tMonth + 1)
     tDate = doHandleMonth(tDate)
     return {
-      day:tDate,
-      weekday:getWeek( tYear+"-"+tMonth+"-"+tDate)
+      day: tDate,
+      weekday: getWeek(tYear + "-" + tMonth + "-" + tDate),
+      fullTime: tYear + "-" + tMonth + "-" + tDate
     }
   }
 

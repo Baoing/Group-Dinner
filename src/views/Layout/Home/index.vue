@@ -1,8 +1,8 @@
 <template>
   <div class='home-container'>
     <home-header />
-    <date-list />
-    <order-list/>
+    <date-list @changeFullTime="changeFullTime"/>
+    <order-list :userDate="fullTime"/>
   </div>
 </template>
 
@@ -16,6 +16,17 @@ export default {
     HomeHeader,
     DateList,
     OrderList
+  },
+  data(){
+    return {
+      userDate: '',
+      fullTime: ''
+    }
+  },
+  methods:{
+    changeFullTime(fullTime){
+      this.fullTime = fullTime
+    }
   }
 }
 </script>

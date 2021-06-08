@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <div class="order-wrap" v-for="(item,index) of orderList" :key="index" :class="item.status==2?'':'opacity'">
+    <div v-for="(item,index) of orderList" :key="index"
+        :class="{'order-wrap':true, 'opacity': item.status!==2}"
+        @click="handleOrderClick(item)"
+    >
       <div class="order-item">
         <div class="pic"><img :src="item.pic" :alt="item.title"></div>
         <div class="desc">
@@ -15,13 +18,25 @@
 
 <script>
  export default {
+   name:'orderList',
+   props:{
+     userDate: {
+       type:String
+     }
+   },
    data(){
      return {
       orderList:[
-        {title: "早餐",pic:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1664615073,686141833&fm=26&gp=0.jpg",english:"Breakfast",text:"元气的一天从早餐开始!",status:0},//0已截至 1未开通
-        {title: "午餐",pic:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.tbw-hufu.com%2FtuhfJDEwLmFsaWNkbi5jb20vaTMvMzIyOTc1NzczOS9UQjJRenpTZ09BS0wxSmpTWkZvWFhhZ0NGWGFfISEzMjI5NzU3NzM5JDk.jpg&refer=http%3A%2F%2Fwww.tbw-hufu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1624973242&t=0166c905c58ac2a07a054c33b765d845",english:"Lunch",text:"再忙也要记得吃午餐哦!",status:1},
-        {title: "晚餐",pic:"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=833649704,1644325229&fm=26&gp=0.jpg",english:"Dinner",text:"一天的晚餐请整顿好的!",status: 1},
+        {title: "早餐",intervalNo:1,pic:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1664615073,686141833&fm=26&gp=0.jpg",english:"Breakfast",text:"元气的一天从早餐开始!",status:0},//0已截至 1未开通
+        {title: "午餐",intervalNo:2,pic:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.tbw-hufu.com%2FtuhfJDEwLmFsaWNkbi5jb20vaTMvMzIyOTc1NzczOS9UQjJRenpTZ09BS0wxSmpTWkZvWFhhZ0NGWGFfISEzMjI5NzU3NzM5JDk.jpg&refer=http%3A%2F%2Fwww.tbw-hufu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1624973242&t=0166c905c58ac2a07a054c33b765d845",english:"Lunch",text:"再忙也要记得吃午餐哦!",status:1},
+        {title: "晚餐",intervalNo:3,pic:"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=833649704,1644325229&fm=26&gp=0.jpg",english:"Dinner",text:"一天的晚餐请整顿好的!",status: 3},
       ]
+     }
+   },
+   methods:{
+     handleOrderClick({intervalNo,title}){
+       let userDate = this.userDate
+       this.$router.push({path:'/goods',query:{intervalNo,userDate,title}})
      }
    }
  }

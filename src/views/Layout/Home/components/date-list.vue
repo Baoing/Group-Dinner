@@ -37,10 +37,12 @@ export default {
   },
   mounted() {
     this.dayList = getDay(14)
+    this.$emit('changeFullTime',this.dayList[0].fullTime)
   },
   methods: {
     handleDayClick(i) {
       this.activeDay = i
+      this.$emit('changeFullTime',this.dayList[i].fullTime)
     },
     handleSwitchClick() {
       this.show = !this.show

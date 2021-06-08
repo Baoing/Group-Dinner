@@ -16,6 +16,7 @@ const Preference = () => import('@/views/Preference')
 const Notify = () => import('@/views/Notify')
 const Subsidy = () => import('@/views/Subsidy')
 const Wallet = () => import('@/views/Wallet')
+const Goods = () => import('@/views/Goods')
 
 // 个人设置
 const Setting = () => import('@/views/Setting')
@@ -162,6 +163,15 @@ const routes = [
     component: Subsidy,
     meta: {
       title: '餐补',
+      isLogin: true
+    }
+  },
+  {
+    path: '/goods',
+    name: 'Goods',
+    component: Goods,
+    meta: {
+      title: '商品列表',
       isLogin: true
     }
   },
