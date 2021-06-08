@@ -1,21 +1,61 @@
 <template>
-  <div>goods</div>
+  <div>
+    <nav-bar :title="query.title">
+
+    </nav-bar>
+
+    <van-search
+        v-model="searchValue"
+        show-action
+        placeholder="请输入搜索关键词"
+        @search="onSearch"
+        class="search"
+    >
+      <template #action>
+        <div class="search-button" @click="onSearch" v-show="searchButton">搜索</div>
+        <div class="cancel-button" @click="onCancel" v-show="!searchButton">取消</div>
+      </template>
+    </van-search>
+
+    
+  </div>
 </template>
 
 <script>
-  export default {
-    data(){
-      return{
+import {Search} from 'vant';
 
-      }
+export default {
+  components: {
+    [Search.name]: Search
+  },
+  data() {
+    return {
+      query: {},
+      searchValue:'',
+      searchButton: true
+    }
+  },
+  created() {
+    this.query = this.$route.query
+  },
+  methods: {
+    onSearch() {
+      if(!this.searchValue) return false
+
+      console.log(this.searchValue)
+      this.searchButton = false
     },
-    created() {
-      let {intervalNo,userDate,title} = this.$route.query
-      console.log(intervalNo,userDate,title)
+    onCancel(){
+      console.log('取消搜索')
+      this.searchButton = true
+    },
+    comeBuy(){
+
     }
   }
+}
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
