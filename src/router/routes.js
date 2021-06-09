@@ -17,6 +17,7 @@ const Notify = () => import('@/views/Notify')
 const Subsidy = () => import('@/views/Subsidy')
 const Wallet = () => import('@/views/Wallet')
 const Goods = () => import('@/views/Goods')
+const OrderDetail = () => import('@/views/OrderDetail')
 
 // 个人设置
 const Setting = () => import('@/views/Setting')
@@ -172,6 +173,15 @@ const routes = [
     component: Goods,
     meta: {
       title: '商品列表',
+      isLogin: true
+    }
+  },
+  {
+    path: '/orderDetail/:id',
+    name: 'OrderDetail',
+    component: OrderDetail,
+    meta: {
+      title: '订单详情',
       isLogin: true
     }
   },

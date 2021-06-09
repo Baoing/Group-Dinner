@@ -5,7 +5,7 @@
       <van-button class="empty-button" to="/home">立即下单</van-button>
     </div>
     <div v-show="orderList && orderList.length>=1" class="list-container">
-
+      <order-item v-for="item of orderList" :key="item.id" :item-info="item" />
     </div>
   </div>
 </template>
@@ -13,6 +13,7 @@
 <script>
 import { Button } from 'vant'
 import MyEmpty from '@/components/empty'
+import OrderItem from  './order-item'
 export default {
   props:{
     orderList: {
@@ -21,6 +22,7 @@ export default {
   },
   components:{
     MyEmpty,
+    OrderItem,
     [Button.name]: Button,
   },
   data() {
@@ -53,5 +55,7 @@ export default {
   left: 50%;
   transform: translate(-50%,0);
 }
-
+.list-container{
+  margin-bottom: 4rem;
+}
 </style>
