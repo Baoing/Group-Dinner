@@ -1,8 +1,6 @@
 <template>
   <div>
-    <nav-bar :title="query.title">
-
-    </nav-bar>
+    <nav-bar :title="query.title"></nav-bar>
 
     <van-search
         v-model="searchValue"
@@ -17,17 +15,28 @@
       </template>
     </van-search>
 
+    <good-type/>
 
+    <tab-wrapper/>
+
+    <pay-bar />
 
   </div>
 </template>
 
 <script>
 import {Search} from 'vant';
+import GoodType from './components/good-type'
+import PayBar from './components/pay-bar'
+import TabWrapper from './components/tab-wrapper'
 
 export default {
   components: {
-    [Search.name]: Search
+    [Search.name]: Search,
+    GoodType,
+    PayBar,
+    TabWrapper
+
   },
   data() {
     return {
@@ -42,7 +51,6 @@ export default {
   methods: {
     onSearch() {
       if(!this.searchValue) return false
-
       console.log(this.searchValue)
       this.searchButton = false
     },
@@ -58,5 +66,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.search-button{
+  color: $theme-color;
+}
 
 </style>
