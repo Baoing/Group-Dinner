@@ -22,7 +22,7 @@
     <list-item label="订单编号">
       T210527110048-510
       <template #right>
-        <div class="code-show">
+        <div class="code-show" @click="qrCodeShow">
           <van-icon name="qr" size="26" class="icon" /> >
         </div>
       </template>
@@ -45,11 +45,16 @@ export default {
   },
   data() {
     return {
-      detailList: []
+      detailList: [],
+      detailPopup:false,
+      codeShow:false
     }
   },
   methods: {
     handleDetailPopup() {
+
+    },
+    qrCodeShow(){
 
     }
   }

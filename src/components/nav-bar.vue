@@ -8,8 +8,9 @@
       fixed
       z-index="9999"
     >
-      <template v-if="rightIcon" #right>
-        <van-icon :name="rightIcon" size="18" @click="$emit('right-click')" />
+      <template #right>
+        <van-icon  v-if="rightIcon" :name="rightIcon" size="18" @click="$emit('right-click')" />
+        <div v-if="rightText" @click="$emit('right-click')">{{rightText}}</div>
       </template>
     </van-nav-bar>
     <div class="block"></div>
@@ -21,7 +22,8 @@ import {NavBar,Icon} from 'vant'
 export default {
   props:{
     title: String,
-    rightIcon: String
+    rightIcon: String,
+    rightText: String
   },
   components:{
     [NavBar.name]: NavBar,
