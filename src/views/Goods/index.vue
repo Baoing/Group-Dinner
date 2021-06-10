@@ -15,7 +15,7 @@
       </template>
     </van-search>
 
-    <good-type/>
+    <shop-type :shop-types="[1]" @typeChange="handleShopChange"/>
 
     <tab-wrapper/>
 
@@ -26,17 +26,16 @@
 
 <script>
 import {Search} from 'vant';
-import GoodType from './components/good-type'
+import ShopType from './components/shop-type'
 import PayBar from './components/pay-bar'
 import TabWrapper from './components/tab-wrapper'
 
 export default {
   components: {
     [Search.name]: Search,
-    GoodType,
+    ShopType,
     PayBar,
     TabWrapper
-
   },
   data() {
     return {
@@ -49,6 +48,9 @@ export default {
     this.query = this.$route.query
   },
   methods: {
+    handleShopChange(e){
+      console.log(e)
+    },
     onSearch() {
       if(!this.searchValue) return false
       console.log(this.searchValue)

@@ -12,7 +12,7 @@
     </div>
 
     <div class="tab-content">
-      <tab-content :empty-desc="emptyDesc"></tab-content>
+      <tab-content :empty-desc="emptyDesc" :good-list="goodLists[activeIndex]"></tab-content>
     </div>
   </div>
 </template>
@@ -27,7 +27,10 @@ export default {
     return {
       tabList: ['综合', '月销', '价格', '评分', '新菜', '收藏'],
       activeIndex: 0,
-      emptyDesc: '暂未上传菜单'
+      emptyDesc: '暂未上传菜单',
+      goodLists:[
+        [1,2],[],[],[],[]
+      ]
     }
   },
   methods: {

@@ -1,11 +1,16 @@
 <template>
     <div class="tab-content">
-      <div class="content-empty">
+      <div class="content-empty" v-if="!goodList||goodList.length<1">
         <div class="pic-box">
           <img src="@/assets/images/empty.png" alt>
         </div>
         <p>{{emptyDesc}}</p>
       </div>
+      <template v-else>
+      <div class="content-item" v-for="item of goodList" :key="item.id">
+        {{item}}
+      </div>
+      </template>
     </div>
 </template>
 

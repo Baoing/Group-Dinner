@@ -1,6 +1,6 @@
 <template>
   <div class="type-list">
-    <div class="type-item">
+    <div class="type-item" v-for="item of shopTypes" @click="$emit('typeChange',item.id)" :key="item.id">
       <div class="item-pic">
         <img src="@/assets/images/allgoods.png" size="40px" alt="全部">
       </div>
@@ -8,7 +8,19 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  name:'shopType',
+  props:{
+    shopTypes:Array
+  },
+  data(){
+    return{
 
+    }
+  }
+}
+</script>
 <style scoped lang="scss">
 .type-list {
   padding: 0.2rem 1rem;
