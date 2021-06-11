@@ -1,5 +1,5 @@
 <template>
-    <div class="tab-content">
+    <div class="tab-content" v-if ="flag" >
       <div class="content-empty" v-if="!goodList||goodList.length<1">
         <div class="pic-box">
           <img src="@/assets/images/empty.png" alt>
@@ -8,26 +8,24 @@
       </div>
       <template v-else>
       <div class="content-item" v-for="item of goodList" :key="item.id">
-
-
         <div class="item-content">
           <div class="pic-box">
-            <img :src="item.pic" alt="">
+            <img :src="item.cover_pic" alt="">
           </div>
           <div class="desc">
-            <div class="desc-title">{{ item.title }}</div>
+            <div class="desc-title">{{ item.name }}</div>
             <div class="desc-text">{{ item.desc }}</div>
 
             <div class="desc-list">
-              <div class="list-num"><img src="@/assets/images/number.png" alt>{{item.number}}</div>
-              <div class="list-like"><img src="@/assets/images/like.png" alt>{{item.like}}</div>
-              <div class="list-collect"><img src="@/assets/images/number.png" alt>{{item.collect}}分</div>
+              <div class="list-num"><img src="@/assets/images/number.png" alt>{{item.sales}}</div>
+              <div class="list-like"><img src="@/assets/images/like.png" alt>{{item.likes}}</div>
+              <div class="list-collect"><img src="@/assets/images/number.png" alt>{{item.collects}}分</div>
             </div>
 
             <div class="desc-info">
               <div class="left">
                 <div class="price">￥{{ item.price }}</div>
-                <div class="shop">{{ item.shopName }}</div>
+                <div class="shop">{{ item.store_name }}</div>
               </div>
               <div class="active" v-if="item.status == 2" @click="handleAddGoodCart(item.id)">
                 +
@@ -57,13 +55,20 @@ export default {
   },
   data(){
     return {
-
+      flag: false
     }
   },
   methods:{
     // 添加商品进入购物车
     handleAddGoodCart(id){
       console.log(id)
+    }
+  },
+  watch: {
+    goodList: function () {
+      this.$nextTick(()=>{
+        this.flag = true;
+      })
     }
   }
 }
@@ -96,7 +101,7 @@ export default {
   margin: 0 0.8rem 1rem;
   border-bottom: 1px solid #eee;
   background: #fff;
-  
+
   .pic-box {
     width: 7rem;
     height: 7rem;

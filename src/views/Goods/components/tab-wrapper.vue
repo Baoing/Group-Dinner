@@ -12,15 +12,18 @@
     </div>
 
     <div class="tab-content">
-      <tab-content :empty-desc="emptyDesc" :good-list="goodLists[activeIndex]"></tab-content>
+      <tab-content :empty-desc="emptyDesc" :good-list="goodLists"></tab-content>
     </div>
   </div>
 </template>
 
 <script>
 import TabContent from './tab-content'
+import {getGoods} from '@/network'
+import {Toast} from 'vant'
+
 export default {
-  components:{
+  components: {
     TabContent
   },
   data() {
@@ -28,37 +31,26 @@ export default {
       tabList: ['综合', '月销', '价格', '评分', '新菜', '收藏'],
       activeIndex: 0,
       emptyDesc: '暂未上传菜单',
-      goodLists:[
-        [{
-          status: 0,
-          title: "爆炒牛肚套餐",
-          pic: require("@/assets/images/good01.jpg"),
-          desc:"辅荤+素菜+米饭",
-          price: 25,
-          shopName:"演示店铺",
-          id: '002',
-          number:11,
-          like:2,
-          collect:1
-        },
-          {
-            status: 2,
-            title: "爆炒牛肚套餐",
-            pic: require("@/assets/images/good02.jpg"),
-            desc:"辅荤+素菜+米饭",
-            price: 25,
-            shopName:"演示店铺",
-            id: '003',
-            number:11,
-            like:2,
-            collect:1,
-            time:"14:00截至"
-          }
-          ],[],[],[],[]
-      ]
+      goodLists: []
     }
   },
+  created() {
+  },
   methods: {
+    handleGoodsClick(id){
+      // 获取商品列表
+      let that = this
+      getGoods({mch_id:Number(id)}).then(res=>{
+        let {code,data,msg} = res
+        console.log(data.list)
+        if(code===0){
+          that.goodLists = data.list
+        }else{
+          Toast(msg)
+        }
+
+      })
+    },
     handleItemClick(index) {
       this.activeIndex = index
 
@@ -86,15 +78,15 @@ export default {
     display: flex;
     border-bottom: 1px solid #eee;
 
-    .tab-item{
+    .tab-item {
       font-size: 0.9rem;
       padding: 0.2rem 0.5rem;
       line-height: 2rem;
       color: #666;
     }
 
-    .active{
-      color:#555;
+    .active {
+      color: #555;
       font-size: 1rem;
       font-weight: bold;
       position: relative;

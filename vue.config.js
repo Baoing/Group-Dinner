@@ -15,6 +15,13 @@ module.exports = {
       warnings: false,
       errors: true
     },
+    // 跨域
+    proxy: {
+      '/dev': {
+        target: 'https://newtuancan.beichuanggaoke.com/web/index.php',
+        changeOrigin: true
+      }
+    }
   },
   chainWebpack(config) {
     config.module.rules.delete('svg') // 重点:删除默认配置中处理svg,

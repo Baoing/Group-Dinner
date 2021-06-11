@@ -5,7 +5,7 @@
     <van-cell-group class="cell-group">
       <van-cell title="头像" to="/setAuthor" is-link>
         <template #default>
-          <img class="author" :src="author||require('@/assets/images/default-author.jpg')" alt>
+          <img class="author" :src="$store.getters['user/userInfo'].avatar" alt>
         </template>
       </van-cell>
 
@@ -41,7 +41,7 @@
 
       <van-cell title="手机号" >
         <template #default>
-          {{mobile}}
+          {{$store.getters['user/userInfo'].username}}
         </template>
       </van-cell>
 

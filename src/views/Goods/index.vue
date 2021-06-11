@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav-bar :title="query.title"></nav-bar>
+    <nav-bar :title="query.title" />
 
     <van-search
         v-model="searchValue"
@@ -15,9 +15,9 @@
       </template>
     </van-search>
 
-    <shop-type :shop-types="[1]" @typeChange="handleShopChange"/>
+    <shop-type :shop-types="storeList" :store-id="storeId" @typeChange="handleShopChange"/>
 
-    <tab-wrapper/>
+    <tab-wrapper ref="tabWrapper"/>
 
     <pay-bar />
 
@@ -25,10 +25,11 @@
 </template>
 
 <script>
-import {Search} from 'vant';
+import {Search,Toast} from 'vant';
 import ShopType from './components/shop-type'
 import PayBar from './components/pay-bar'
 import TabWrapper from './components/tab-wrapper'
+import {getStore} from '@/network'
 
 export default {
   components: {
@@ -41,15 +42,31 @@ export default {
     return {
       query: {},
       searchValue:'',
-      searchButton: true
+      searchButton: true,
+      storeList:[],
+      storeId: '2'
     }
   },
   created() {
+    let that = this
     this.query = this.$route.query
+    // 获取商户列表
+    getStore().then(res => {
+      let {msg,data,code} = res
+      if(code===0){
+        that.storeList = data.list
+        //初始点击
+        that.handleShopChange(data.list[0].store_id)
+      }else{
+        Toast(msg)
+      }
+    })
   },
   methods: {
     handleShopChange(e){
       console.log(e)
+      this.storeId = e
+      this.$refs.tabWrapper.handleGoodsClick(e);
     },
     onSearch() {
       if(!this.searchValue) return false

@@ -1,22 +1,22 @@
 <template>
   <div class="me-header">
     <router-link to="/setting">
-      <div class="pic"><img :src="userInfo.author|| require('@/assets/images/default-author.jpg')" alt=""></div>
-      <div class="author">{{userInfo.name}}</div>
-      <div class="company">{{userInfo.company}}</div>
+      <div class="pic"><img :src="avatar" alt=""></div>
+      <div class="author">{{ userInfo.name }}</div>
+      <div class="company">{{ userInfo.company }}</div>
     </router-link>
 
     <div class="header-bar">
       <div class="header-bar-item" @click="handleLinkTo('/wallet')">
         <div class="text">钱包</div>
-        <div class="amount">￥{{userInfo.wallet || 0}}</div>
+        <div class="amount">￥{{ userInfo.wallet || 0 }}</div>
       </div>
       <div class="center-line"></div>
       <div class="header-bar-item" @click="handleLinkTo('/subsidy')">
         <div class="text">餐补</div>
         <div class="amount">
           <div class="mouth-pic"><img src="@/assets/images/mouth.png" alt=""></div>
-          ￥{{userInfo.subsidy || 0}}
+          ￥{{ userInfo.subsidy || 0 }}
         </div>
       </div>
     </div>
@@ -31,11 +31,20 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      avatar: require('@/assets/images/default-author.jpg')
+    }
+  },
   methods: {
-    handleLinkTo(link){
+    handleLinkTo(link) {
       this.$router.push(link)
     }
+  },
+  mounted() {
+    this.avatar = this.$store.getters['user/userInfo'].avatar
   }
+
 }
 </script>
 
