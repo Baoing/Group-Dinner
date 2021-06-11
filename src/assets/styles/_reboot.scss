@@ -220,7 +220,7 @@ a {
   text-decoration: $link-decoration;
 
   &:hover {
-    color: inherit;
+    color: none;
     text-decoration: $link-hover-decoration;
   }
 }
@@ -237,7 +237,6 @@ a:not([href]) {
     text-decoration: none;
   }
 }
-
 
 
 // Code

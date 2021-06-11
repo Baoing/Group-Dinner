@@ -29,7 +29,32 @@ export default {
       activeIndex: 0,
       emptyDesc: '暂未上传菜单',
       goodLists:[
-        [1,2],[],[],[],[]
+        [{
+          status: 0,
+          title: "爆炒牛肚套餐",
+          pic: require("@/assets/images/good01.jpg"),
+          desc:"辅荤+素菜+米饭",
+          price: 25,
+          shopName:"演示店铺",
+          id: '002',
+          number:11,
+          like:2,
+          collect:1
+        },
+          {
+            status: 2,
+            title: "爆炒牛肚套餐",
+            pic: require("@/assets/images/good02.jpg"),
+            desc:"辅荤+素菜+米饭",
+            price: 25,
+            shopName:"演示店铺",
+            id: '003',
+            number:11,
+            like:2,
+            collect:1,
+            time:"14:00截至"
+          }
+          ],[],[],[],[]
       ]
     }
   },
